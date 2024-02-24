@@ -1,33 +1,16 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
-  else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
+print("100 Days of Code QUIZ")
+print()
+print("How many can you answer correctly?")
+ans1 = input("What language are we writing in?")
+if ans1 == "python":
+  print("Correct")
 else:
-  print("I can only answer questions for Davids or Marks")
+  print("Nope🙈")
+ans2 = int(input("Which lesson number is this?"))
+if(ans2>12):
+  print("We're not quite that far yet")
+elif(ans2==12):
+    print("That's right!")
+else:
+  print("We've gone well past that!")
+
