@@ -1,33 +1,27 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
+print("Welcome to Guess the Number.")
+print()
+print("Guess a number between 1 and 20 and I will tell you if you are too low, too high, or get it correct.")
+print()
+print("Let's play!")
+
+correct_number = 22
+attempt = 1
+
+while True:
+  user_guess = int(input("Pick a number between 1 and 25: "))
+  if user_guess < 0:
+    print("Now we'll never know what the answer is …")
+    exit()
+  if user_guess < correct_number:
+    print("That number is too low. Try again!")
+    attempt += 1
+  elif user_guess > correct_number:
+    print("That number is too high. Try again!")
+    attempt += 1
+    continue
+  elif user_guess == correct_number:
+    print("You are a winner! 🥳🥳")
+    break 
   else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+    print("That is not a number I recognize.")
+print("It took you", attempt, "attempt(s) to get the correct answer.")
