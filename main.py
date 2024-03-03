@@ -1,33 +1,31 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
-  else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+    from replit import audio
+    import os, time
+
+    def play():
+      source = audio.play_file('audio.wav')
+      source.paused = False # unpause the playback
+      while True:
+        stop_playback = int(input("Press 2 anytime to stop playback and go back to the menu : ")) # giving the user the option to stop playback
+        if stop_playback == 2:
+          source.paused = True # let's pause the file 
+          return # let's go back from this play() subroutine
+        else: 
+          continue
+
+    while True:
+      os.system("clear")
+      print("🎵 MyPOD Music Player ")
+      time.sleep(1)
+      print("Press 1 to Play")
+      time.sleep(1)
+      print("Press 2 to Exit")
+      time.sleep(1)
+      print("Press anything else to see the menu again")
+      userInput = int(input())
+      if userInput == 1:
+        print("Playing some proper tunes!")
+        play()
+      elif userInput == 2:
+        exit()
+      else :
+        continue
