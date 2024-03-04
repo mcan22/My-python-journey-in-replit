@@ -1,33 +1,40 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
+import random, os, time
+
+def rollDice(sides):
+  result = random.randint(1, sides)
+  return result
+
+def calculate_health():
+  roll_6_sided_dice = rollDice(6)
+  roll_12_sided_dice = rollDice(12)
+  health_value = ((roll_6_sided_dice * roll_12_sided_dice) / 2) + 12
+  return health_value
+
+def calculate_strength():
+  roll_6_sided_dice = rollDice(6)
+  roll_8_sided_dice = rollDice(8)
+  strength_value = ((roll_6_sided_dice * roll_8_sided_dice) / 2) + 12
+  return strength_value
+
+
+haveACharacter = "yes"
+while haveACharacter.lower() == "yes":
+  print("⚔️ Character Stats Generator ⚔️")
+  print()
+  character = input("Name your warrior: ")
+  character_type = input("Character type (Human, Elf, Wizard, Orc): ")
+  character_health = str(calculate_health())
+  character_strength = str(calculate_strength())
+  print(character,"the",character_type)
+  print("Their health is", character_health, "hp")
+  print("Their strength is", character_strength, "hp")
+  print()
+  haveACharacter = input("Want to create another character? ")
+
+  if haveACharacter.lower() == "yes":
+    time.sleep(1)
+    os.system("clear")
+    continue
   else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+    break
+
