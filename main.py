@@ -1,33 +1,47 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
-  else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+def colorChange(color):
+  if color=="red":
+    return ("\033[31m")
+  elif color=="white":
+    return ("\033[0m")
+  elif color=="blue":
+    return ("\033[34m")
+  elif color=="yellow":
+    return ("\033[33m")
+  elif color == "green":
+    return ("\033[32m")
+  elif color == "purple":
+    return ("\033[35m")
+
+title = f"{colorChange('red')}={colorChange('white')}={colorChange('blue')}= {colorChange('yellow')}Music App {colorChange('blue')}={colorChange('white')}={colorChange('red')}="
+
+print(f"        {title:^35}")
+print(f"🔥▶️\t{colorChange('white')}Radio Gaga")
+print(f"\t{colorChange('yellow')}Queen")
+
+prev = "prev"
+next = "next"
+pause = "pause"
+
+print(f"{colorChange('white')}{prev:<35}")
+print(f"{colorChange('green')}{next:^35}")
+print(f"{colorChange('purple')}{pause:>35}")
+
+
+print()
+print()
+text = "WELCOME TO"
+print(f"{colorChange('white')}{text:^35}")
+text = "--  ARMBOOK  --"
+print(f"{colorChange('blue')}{text:^35}")
+text = "Definitely not a rip off"
+print(f"{colorChange('yellow')}{text:>35}")
+text = "a certain other social"
+print(f"{colorChange('yellow')}{text:>35}")
+text = "networking site"
+print(f"{colorChange('yellow')}{text:>35}")
+text = "Honest."
+print(f"{colorChange('red')}{text:^35}")
+text = "Username: "
+username = input(f"{colorChange('white')}{text:^35}")
+text = "Password: "
+username = input(f"{colorChange('white')}{text:^35}")
