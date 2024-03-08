@@ -1,33 +1,43 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
-  else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+import os
+import time
+
+listOfEmail = []
+
+def prettyPrint():
+    os.system("clear") 
+    print("listofEmail") 
+    print()
+    counter = 1 
+    for email in listOfEmail: 
+        print(f"{counter}: {email}") 
+        counter += 1 
+    time.sleep(1)
+def spam(max):
+  for i in range(min(max, len(listOfEmail))):
+    print(f"""Email {i+1}
+
+Dear {listOfEmail[i]}
+It has come to our attention that you're missing out on the amazing Replit 100 days of code. We insist you do it right away. If you don't we will pass on your email address to every spammer we've ever encountered
+
+Love and hug,
+Ian Spammington III""")
+    time.sleep(2)
+    os.system("clear")
+
+
+while True:
+    print("SPAMMER Inc.")
+    menu = input("1. Add email\n2: Remove email\n3. Show emails\n4. Get SPAMMING\n> ")
+    if menu == "1":
+        email = input("Email > ")
+        listOfEmail.append(email)
+    elif menu == "2":
+        email = input("Email > ")
+        if email in listOfEmail:
+            listOfEmail.remove(email)
+    elif menu == "3":
+        prettyPrint()
+    elif menu == "4":
+      spam(10)
+    time.sleep(1)
+    os.system("clear")
