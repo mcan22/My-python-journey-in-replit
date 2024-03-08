@@ -1,33 +1,32 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
-  else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+import os, time
+toDoList = []
+
+def printList():
+  print()
+  for items in toDoList:
+    print(items)
+  print()
+
+while True:
+  menu = input("ToDo List Manager\nDo you want to view, add, edit, remove or delete the todo list?\n")
+  if menu=="view":
+    printList()
+  elif menu=="add":
+    item = input("What do you want to add?\n").title()
+    toDoList.append(item)
+  elif menu=="remove":
+    item = input("What do you want to remove?\n").title()
+    check = input("Are you sure you want to remove this?\n")
+    if check[0]=="y":
+      if item in toDoList:
+        toDoList.remove(item)
+  elif menu=="edit":
+    item = input("What do you want to edit?\n").title()
+    new = input("What do you want to change it to?\n").title()
+    for i in range(0,len(toDoList)):
+      if toDoList[i]==item:
+        toDoList[i]=new
+  elif menu=="delete":
+    toDoList = []
+  time.sleep(1)
+  os.system('clear')
