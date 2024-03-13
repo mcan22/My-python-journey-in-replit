@@ -1,27 +1,51 @@
-listOfShame = []
+import random, os, time
+
+bingo = []
+
+def ran():
+  number = random.randint(1,90)
+  return number
+
 def prettyPrint():
+  for row in bingo:
+    for item in row:
+      print(item, end="\t|\t")
     print()
-    for row in listOfShame:
-        for item in row:
-            # item refers to each item in the column for that row
-            print(f"{item:^10}", end=" | ")
-            # :^10 means 10 characters as the space with the data in the center. The end character has been changed to space vertical line space to make it look more like a table.
-        print()
-    print()
+
+def createCard():
+  global bingo
+  numbers = []
+  for i in range(8):
+    num = ran()
+    while num in numbers:
+      num = ran()
+    numbers.append(ran())
+
+  numbers.sort()
+
+  bingo = [ [ numbers[0], numbers[1], numbers[2]],
+            [ numbers[3], "BG", numbers[4] ],
+            [ numbers [5], numbers[6], numbers[7]]
+          ]
+
+createCard()
 while True:
-    menu = input("Add or Remove?")  
-    if menu.strip().lower()[0] == "a": 
-        name = input("What is your name? ")
-        age = input("What is your age? ")
-        pref = input("What is your computer platform? ")
+  prettyPrint()
+  num = int(input("Next Number: "))
+  for row in range(3):
+    for item in range(3):
+      if bingo[row][item] == num:
+        bingo[row][item] = "X"
 
-        row = [name, age, pref]
+  exes = 0
+  for row in bingo:
+    for item in row:
+      if item=="X":
+        exes+=1
 
-        listOfShame.append(row)
-    else:
-        name = input("What is the name of the record to delete?")  
-        for row in listOfShame:
-            if name in row:  
-                listOfShame.remove(row) 
-    prettyPrint()  # Döngünün içinde olduğu için her iterasyonda bu fonksiyon çağrılır
+  if exes == 8:
+    print("You have won")
+    break
 
+  time.sleep(1)
+  os.system("clear")
