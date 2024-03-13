@@ -1,33 +1,27 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
-  else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
+listOfShame = []
+def prettyPrint():
+    print()
+    for row in listOfShame:
+        for item in row:
+            # item refers to each item in the column for that row
+            print(f"{item:^10}", end=" | ")
+            # :^10 means 10 characters as the space with the data in the center. The end character has been changed to space vertical line space to make it look more like a table.
+        print()
+    print()
+while True:
+    menu = input("Add or Remove?")  
+    if menu.strip().lower()[0] == "a": 
+        name = input("What is your name? ")
+        age = input("What is your age? ")
+        pref = input("What is your computer platform? ")
+
+        row = [name, age, pref]
+
+        listOfShame.append(row)
     else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+        name = input("What is the name of the record to delete?")  
+        for row in listOfShame:
+            if name in row:  
+                listOfShame.remove(row) 
+    prettyPrint()  # Döngünün içinde olduğu için her iterasyonda bu fonksiyon çağrılır
+
