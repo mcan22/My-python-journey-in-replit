@@ -1,33 +1,85 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
+# | Name | Date | Priority
+import os, time
+todo = []
+
+def add():
+  time.sleep(1)
+  os.system("clear")
+  name = input("Name > ")
+  date = input("Due Date > ")
+  priority = input("Priority > ").capitalize()
+  row = [name, date, priority]
+  todo.append(row)
+  print("Added")
+
+def view():
+  time.sleep(1)
+  os.system("clear")
+  options = input("1: All\n2: By Priority\n> ")
+  if options=="1":
+    for row in todo:
+      for item in row:
+        print(item, end=" | ")
+      print()
+    print()
   else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+    priority = input("What priority? > ").capitalize()
+    for row in todo:
+      if priority in row:
+        for item in row:
+          print(item, end=" | ")
+        print()
+    print()
+  time.sleep(1)
+
+def edit():
+  time.sleep(1)
+  os.system("clear")
+  find = input("Name of todo to edit > ")
+  found = False
+  for row in todo:
+    if find in row:
+      found = True
+  if not found:
+    print("Couldn't find that")
+    return
+  for row in todo:
+    if find in row:
+      todo.remove(row)
+  name = input("Name > ")
+  date = input("Due Date > ")
+  priority = input("Priority > ").capitalize()
+  row = [name, date, priority]
+  todo.append(row)
+  print("Added")
+
+def remove():
+  time.sleep(1)
+  os.system("clear")
+  find = input("Name of todo to remove > ")
+  for row in todo:
+    if find in row:
+      todo.remove(row)
+
+while True:
+  menu = input("1: Add\n2: View\n3: Edit\n4: Remove\n5: Exit\n> ")
+  if menu == "1":
+    add()
+  elif menu == "2":
+    view()
+  elif menu == "3":
+    edit()
+  elif menu == "4":
+    remove()
+  elif menu == "5":
+    print("Exiting...")
+    break
+  else:
+    print("Invalid choice. Please enter a valid option.")
+
+  time.sleep(1)
+  os.system("clear")
+
+
+
+    
