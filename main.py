@@ -1,33 +1,65 @@
-print("Wholesome Positivity Machine")
-print("who are you?")
-name = input()
-if name== "David" or name== "david":
-  print("What do you want to achieve?")
-  goal = input()
-  print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-  emotion=int(input())
-  if emotion>5:
-    print("perfect")
+import os, time
+inventory = []
+
+try:
+  f = open("inventory.txt", "r")
+  inventory = eval(f.read())
+  f.close()
+except:
+  pass
+
+def addItem():
+  time.sleep(1)
+  os.system("clear")
+  print("INVENTORY")
+  print("=========")
+  print()
+  item = input("Item to add > ").capitalize()
+  inventory.append(item)
+  print("Added")
+
+def viewItem():
+  time.sleep(1)
+  os.system("clear")
+  print("INVENTORY")
+  print("=========")
+  print()
+  seen = []
+  for item in inventory:
+    if item not in seen:
+      print(f"{item} {inventory.count(item)}")
+      seen.append(item)
+
+  time.sleep(2)
+
+def removeItem():
+  time.sleep(1)
+  os.system("clear")
+  print("INVENTORY")
+  print("=========")
+  print()
+  item = input("Item to remove > ").capitalize()
+  if item in inventory:
+    inventory.remove(item)
+    print("Removed")
   else:
-    print("Can I help you?")
-    getthefeedback=input()
-    if getthefeedback=="yes" or getthefeedback=="Yes":
-      print("Take pills")
-    else:
-      print("go find someone to help you then mate")
-elif name=="Mark" or name=="mark":
-    print("What do you want to achieve in life my dear brother?")
-    goal = input()
-    print("On a scale of 1 - 10 how do you feel today? (1: 😢, 10: 🥳)")
-    emotion=int(input())
-    if emotion>8:
-      print("You gotta help me then mate i even dont feel that good?")
-    else:
-      print("oh dear brother what happened, can i help")
-      getthefeedback=input()
-      if getthefeedback=="yes" or getthefeedback=="Yes":
-        print("Take a hike")
-      else:
-        print("go find someone to help you then mate")
-else:
-  print("I can only answer questions for Davids or Marks")
+    print("You don't have that item")
+
+
+while True:
+  time.sleep(1)
+  os.system("clear")
+  print("INVENTORY")
+  print("=========")
+  print()
+  menu = input("1: Add\n2: View\n3: Remove\n> ")
+  if menu=="1":
+    addItem()
+  elif menu=="2":
+    viewItem()
+  else:
+    removeItem()
+
+  f = open("inventory.txt", "w")
+  f.write(str(inventory))
+  f.close()
